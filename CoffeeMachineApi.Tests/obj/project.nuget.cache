@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "bwg6EUmAkvg=",
+  "dgSpecHash": "GGmQt15J6rU=",
   "success": true,
   "projectFilePath": "D:\\Mac\\Coffee\\CoffeeMachineApi.Tests\\CoffeeMachineApi.Tests.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Julius Mark Genato\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\Julius Mark Genato\\.nuget\\packages\\coverlet.collector\\6.0.4\\coverlet.collector.6.0.4.nupkg.sha512",
     "C:\\Users\\Julius Mark Genato\\.nuget\\packages\\microsoft.aspnetcore.mvc.testing\\10.0.5\\microsoft.aspnetcore.mvc.testing.10.0.5.nupkg.sha512",
     "C:\\Users\\Julius Mark Genato\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.1\\microsoft.aspnetcore.openapi.10.0.1.nupkg.sha512",
@@ -41,6 +42,7 @@
     "C:\\Users\\Julius Mark Genato\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512",
     "C:\\Users\\Julius Mark Genato\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.14.1\\microsoft.testplatform.objectmodel.17.14.1.nupkg.sha512",
     "C:\\Users\\Julius Mark Genato\\.nuget\\packages\\microsoft.testplatform.testhost\\17.14.1\\microsoft.testplatform.testhost.17.14.1.nupkg.sha512",
+    "C:\\Users\\Julius Mark Genato\\.nuget\\packages\\moq\\4.20.72\\moq.4.20.72.nupkg.sha512",
     "C:\\Users\\Julius Mark Genato\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\Julius Mark Genato\\.nuget\\packages\\system.diagnostics.eventlog\\10.0.5\\system.diagnostics.eventlog.10.0.5.nupkg.sha512",
     "C:\\Users\\Julius Mark Genato\\.nuget\\packages\\xunit\\2.9.3\\xunit.2.9.3.nupkg.sha512",

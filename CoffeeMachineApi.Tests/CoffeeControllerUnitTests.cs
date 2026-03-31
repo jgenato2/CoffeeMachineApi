@@ -8,10 +8,11 @@ namespace CoffeeMachineApi.Tests
     public class CoffeeControllerUnitTests()
     {
         [Fact]
-        public void BrewCoffee_Returns200_WhenNotApril1st_AndNotFifthCall()
+        public async Task BrewCoffee_Returns200_WhenNotApril1st_AndNotFifthCall()
         {
             // Arrange
-            var controller = new CoffeeController();
+            var httpClientFactory = new Moq.Mock<IHttpClientFactory>().Object;
+            var controller = new CoffeeController(httpClientFactory);
             var field = typeof(CoffeeController).GetField("_callCount", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
             if (field != null)
             {
@@ -19,7 +20,7 @@ namespace CoffeeMachineApi.Tests
             }
 
             // Act
-            var result = controller.BrewCoffee() as OkObjectResult;
+            var result = await controller.BrewCoffee() as OkObjectResult;
 
             // Assert
             Assert.NotNull(result);
@@ -39,10 +40,11 @@ namespace CoffeeMachineApi.Tests
         }
 
         [Fact]
-        public void BrewCoffee_Returns503_OnFifthCall()
+        public async Task BrewCoffee_Returns503_OnFifthCall()
         {
             // Arrange
-            var controller = new CoffeeController();
+            var httpClientFactory = new Moq.Mock<IHttpClientFactory>().Object;
+            var controller = new CoffeeController(httpClientFactory);
             var field = typeof(CoffeeController).GetField("_callCount", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
             if (field != null)
             {
@@ -50,11 +52,13 @@ namespace CoffeeMachineApi.Tests
             }
 
             // Act
-            var result = controller.BrewCoffee() as StatusCodeResult;
+            var result = await controller.BrewCoffee();
 
             // Assert
             Assert.NotNull(result);
-            Assert.Equal(503, result.StatusCode);
+            var statusCode = (result as StatusCodeResult)?.StatusCode
+                ?? (result as ObjectResult)?.StatusCode;
+            Assert.Equal(503, statusCode);
         }
     }
 }

@@ -420,3 +420,5 @@ D:\Mac\Coffee\CoffeeMachineApi.Tests\obj\Debug\net10.0\refint\CoffeeMachineApi.T
 D:\Mac\Coffee\CoffeeMachineApi.Tests\obj\Debug\net10.0\CoffeeMachineApi.Tests.pdb
 D:\Mac\Coffee\CoffeeMachineApi.Tests\obj\Debug\net10.0\CoffeeMachineApi.Tests.genruntimeconfig.cache
 D:\Mac\Coffee\CoffeeMachineApi.Tests\obj\Debug\net10.0\ref\CoffeeMachineApi.Tests.dll
+D:\Mac\Coffee\CoffeeMachineApi.Tests\bin\Debug\net10.0\Castle.Core.dll
+D:\Mac\Coffee\CoffeeMachineApi.Tests\bin\Debug\net10.0\Moq.dll
