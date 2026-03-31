@@ -9,12 +9,12 @@ namespace CoffeeMachineApi.Controllers
     public class CoffeeController : ControllerBase
     {
         private static int _callCount = 0;
-        private static readonly object _lock = new object();
+        private static readonly Lock _lock = new();
 
         [HttpGet("/brew-coffee")]
-        public IActionResult BrewCoffee()
+        public virtual IActionResult BrewCoffee()
         {
-            var now = DateTime.Now;
+            var now = GetNow();
             if (now.Month == 4 && now.Day == 1)
             {
                 // April 1st: I'm a teapot
@@ -40,5 +40,7 @@ namespace CoffeeMachineApi.Controllers
                 prepared = now.ToString("yyyy-MM-ddTHH:mm:ssK")
             });
         }
+
+        protected virtual DateTime GetNow() => DateTime.Now;
     }
 }

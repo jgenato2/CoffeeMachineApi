@@ -8,6 +8,14 @@
 			"isBackground": true,
 			"problemMatcher": [],
 			"group": "build"
+		},
+		{
+			"label": "Run All Tests",
+			"type": "shell",
+			"command": "dotnet test",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
 		}
 	]
 }
