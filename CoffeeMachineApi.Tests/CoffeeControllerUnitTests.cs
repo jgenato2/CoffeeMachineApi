@@ -8,7 +8,7 @@ namespace CoffeeMachineApi.Tests
     public class CoffeeControllerUnitTests()
     {
         [Fact]
-            public void BrewCoffee_Returns200_WhenNotApril1st_AndNotFifthCall()
+        public void BrewCoffee_Returns200_WhenNotApril1st_AndNotFifthCall()
         {
             // Arrange
             var controller = new CoffeeController();
@@ -19,7 +19,7 @@ namespace CoffeeMachineApi.Tests
             }
 
             // Act
-                var result = controller.BrewCoffee() as OkObjectResult;
+            var result = controller.BrewCoffee() as OkObjectResult;
 
             // Assert
             Assert.NotNull(result);
@@ -39,7 +39,7 @@ namespace CoffeeMachineApi.Tests
         }
 
         [Fact]
-            public void BrewCoffee_Returns503_OnFifthCall()
+        public void BrewCoffee_Returns503_OnFifthCall()
         {
             // Arrange
             var controller = new CoffeeController();
@@ -50,7 +50,7 @@ namespace CoffeeMachineApi.Tests
             }
 
             // Act
-                var result = controller.BrewCoffee();
+            var result = controller.BrewCoffee();
 
             // Assert
             Assert.NotNull(result);
