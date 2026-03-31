@@ -25,7 +25,7 @@ namespace CoffeeMachineApi.Tests
         [Fact]
         public void BrewCoffee_Returns503_OnEveryFifthCall()
         {
-            var controller = new CoffeeControllerTestable(() => DateTime.Now);
+                var controller = new CoffeeControllerTestable(() => DateTime.Now);
             Assert.NotNull(controller);
             CoffeeControllerTestable.ResetCounter();
             StatusCodeResult? result = null;
@@ -64,7 +64,7 @@ namespace CoffeeMachineApi.Tests
     }
 
     // Testable subclass to inject date/time
-    public class CoffeeControllerTestable(Func<DateTime> nowProvider) : CoffeeController
+    public class CoffeeControllerTestable(Func<DateTime> nowProvider) : CoffeeMachineApi.Controllers.CoffeeController()
     {
         private static Func<DateTime> _nowProvider = () => DateTime.Now;
         public static void ResetCounter()

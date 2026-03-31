@@ -7,14 +7,9 @@ using Xunit;
 
 namespace CoffeeMachineApi.Tests
 {
-    public class CoffeeControllerIntegrationTests : IClassFixture<WebApplicationFactory<CoffeeMachineApi.Program>>
+    public class CoffeeControllerIntegrationTests(WebApplicationFactory<CoffeeMachineApi.Program> factory) : IClassFixture<WebApplicationFactory<CoffeeMachineApi.Program>>
     {
-        private readonly WebApplicationFactory<CoffeeMachineApi.Program> _factory;
-
-        public CoffeeControllerIntegrationTests(WebApplicationFactory<CoffeeMachineApi.Program> factory)
-        {
-            _factory = factory;
-        }
+        private readonly WebApplicationFactory<CoffeeMachineApi.Program> _factory = factory;
 
         [Fact]
         public async Task BrewCoffee_Returns200_AndJson()

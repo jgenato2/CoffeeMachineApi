@@ -1,0 +1,28 @@
+# .gitignore for .NET projects
+# Build results
+
+# Ignore build output folders
+bin/
+obj/
+bin/**/*.dll
+obj/**/*.dll
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code settings
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Test results
+TestResults/
+
+# Others
+*.log
+*.vs/

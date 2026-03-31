@@ -50,11 +50,13 @@ namespace CoffeeMachineApi.Tests
             }
 
             // Act
-            var result = controller.BrewCoffee() as StatusCodeResult;
+            var result = controller.BrewCoffee();
 
             // Assert
             Assert.NotNull(result);
-            Assert.Equal(503, result.StatusCode);
+            var statusCode = (result as StatusCodeResult)?.StatusCode
+                ?? (result as ObjectResult)?.StatusCode;
+            Assert.Equal(503, statusCode);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace CoffeeMachineApi.Controllers
     public class CoffeeController : ControllerBase
     {
         private static int _callCount = 0;
-        private static readonly Lock _lock = new();
+        private static readonly object _lock = new object();
 
         [HttpGet("/brew-coffee")]
         public virtual IActionResult BrewCoffee()
