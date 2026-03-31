@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run CoffeeMachineApi",
+			"type": "shell",
+			"command": "dotnet run --project CoffeeMachineApi/CoffeeMachineApi.csproj",
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}
