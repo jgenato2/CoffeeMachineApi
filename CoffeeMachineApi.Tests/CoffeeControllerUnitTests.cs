@@ -8,11 +8,10 @@ namespace CoffeeMachineApi.Tests
     public class CoffeeControllerUnitTests()
     {
         [Fact]
-        public async Task BrewCoffee_Returns200_WhenNotApril1st_AndNotFifthCall()
+            public void BrewCoffee_Returns200_WhenNotApril1st_AndNotFifthCall()
         {
             // Arrange
-            var httpClientFactory = new Moq.Mock<IHttpClientFactory>().Object;
-            var controller = new CoffeeController(httpClientFactory);
+            var controller = new CoffeeController();
             var field = typeof(CoffeeController).GetField("_callCount", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
             if (field != null)
             {
@@ -20,7 +19,7 @@ namespace CoffeeMachineApi.Tests
             }
 
             // Act
-            var result = await controller.BrewCoffee() as OkObjectResult;
+                var result = controller.BrewCoffee() as OkObjectResult;
 
             // Assert
             Assert.NotNull(result);
@@ -40,11 +39,10 @@ namespace CoffeeMachineApi.Tests
         }
 
         [Fact]
-        public async Task BrewCoffee_Returns503_OnFifthCall()
+            public void BrewCoffee_Returns503_OnFifthCall()
         {
             // Arrange
-            var httpClientFactory = new Moq.Mock<IHttpClientFactory>().Object;
-            var controller = new CoffeeController(httpClientFactory);
+            var controller = new CoffeeController();
             var field = typeof(CoffeeController).GetField("_callCount", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
             if (field != null)
             {
@@ -52,7 +50,7 @@ namespace CoffeeMachineApi.Tests
             }
 
             // Act
-            var result = await controller.BrewCoffee();
+                var result = controller.BrewCoffee();
 
             // Assert
             Assert.NotNull(result);

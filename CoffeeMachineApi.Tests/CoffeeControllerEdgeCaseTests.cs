@@ -8,15 +8,14 @@ namespace CoffeeMachineApi.Tests
     public class CoffeeControllerEdgeCaseTests()
     {
         [Fact]
-        public async Task BrewCoffee_Returns418_OnApril1st()
+        public void BrewCoffee_Returns418_OnApril1st()
         {
             // Arrange
-            var httpClientFactory = new Moq.Mock<IHttpClientFactory>().Object;
-            var controller = new CoffeeControllerTestable(httpClientFactory, () => new DateTime(2026, 4, 1));
+            var controller = new CoffeeControllerTestable(() => new DateTime(2026, 4, 1));
             CoffeeControllerTestable.ResetCounter();
 
             // Act
-            var result = await controller.BrewCoffee() as StatusCodeResult;
+            var result = controller.BrewCoffee() as StatusCodeResult;
 
             // Assert
             Assert.NotNull(result);
@@ -24,16 +23,15 @@ namespace CoffeeMachineApi.Tests
         }
 
         [Fact]
-        public async Task BrewCoffee_Returns503_OnEveryFifthCall()
+        public void BrewCoffee_Returns503_OnEveryFifthCall()
         {
-            var httpClientFactory = new Moq.Mock<IHttpClientFactory>().Object;
-            var controller = new CoffeeControllerTestable(httpClientFactory, () => DateTime.Now);
+                var controller = new CoffeeControllerTestable(() => DateTime.Now);
             Assert.NotNull(controller);
             CoffeeControllerTestable.ResetCounter();
             StatusCodeResult? result = null;
             for (int i = 0; i < 5; i++)
             {
-                var res = await controller.BrewCoffee();
+                var res = controller.BrewCoffee();
                 if (i == 4)
                     result = res as StatusCodeResult;
             }
@@ -42,14 +40,13 @@ namespace CoffeeMachineApi.Tests
         }
 
         [Fact]
-        public async Task BrewCoffee_Returns200_AndIso8601Date()
+        public void BrewCoffee_Returns200_AndIso8601Date()
         {
             var now = new DateTime(2026, 3, 31, 15, 30, 45, DateTimeKind.Local);
-            var httpClientFactory = new Moq.Mock<IHttpClientFactory>().Object;
-            var controller = new CoffeeControllerTestable(httpClientFactory, () => now);
+            var controller = new CoffeeControllerTestable(() => now);
             Assert.NotNull(controller);
             CoffeeControllerTestable.ResetCounter();
-            var result = await controller.BrewCoffee() as OkObjectResult;
+            var result = controller.BrewCoffee() as OkObjectResult;
             Assert.NotNull(result);
             var obj = result!.Value;
             Assert.NotNull(obj);
@@ -67,7 +64,7 @@ namespace CoffeeMachineApi.Tests
     }
 
     // Testable subclass to inject date/time
-    public class CoffeeControllerTestable(IHttpClientFactory httpClientFactory, Func<DateTime> nowProvider) : CoffeeController(httpClientFactory)
+    public class CoffeeControllerTestable(Func<DateTime> nowProvider) : CoffeeMachineApi.Controllers.CoffeeController()
     {
         private static Func<DateTime> _nowProvider = () => DateTime.Now;
         public static void ResetCounter()
