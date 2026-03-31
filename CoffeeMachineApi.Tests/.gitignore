@@ -1,0 +1,9 @@
+# .gitignore for CoffeeMachineApi.Tests
+bin/
+obj/
+TestResults/
+*.user
+*.suo
+*.log
+*.vs/
+.vscode/
