@@ -1,7 +1,11 @@
 # .gitignore for .NET projects
 # Build results
+
+# Ignore build output folders
 bin/
 obj/
+bin/**/*.dll
+obj/**/*.dll
 
 # User-specific files
 *.user
